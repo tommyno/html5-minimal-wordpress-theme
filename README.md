@@ -1,5 +1,5 @@
 # HTML5 minimal Wordpress theme
 
-Minimalistic starter theme for Wordpress. Contains some usefull code snippets, functions and css styling. 
+Use this as a startkit for developing your own themes.
 
-Use this as a startkit for your own themes.
+Contains usefull code snippets, functions and css styling. 
