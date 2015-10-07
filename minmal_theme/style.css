@@ -1,0 +1,246 @@
+/*
+Theme Name: HTML5 minimal Wordpress theme
+Theme URI: https://github.com/tommyno
+Description: Empty starter theme
+Author: Tommyno
+Author URI: https://github.com/tommyno
+Version: Sept2015;
+*/
+
+
+/************************ 
+    RESET AND DEFAULTS
+************************/
+
+/* reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:top;background:transparent;}
+
+/* clearfix */
+.clearfix:after {content: ""; display: table; clear: both;}
+
+/* apply a natural box layout model to all elements : http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+/* default styles */
+a {color: inherit; text-decoration: none;} /* inherit color, no underline*/
+p a {text-decoration: underline;} /* underline links in paragraphs */
+ul {list-style-position: inside;}  /* start lists inside container */
+img {max-width: 100%; height: auto;} /* responsive images */
+.map img {max-width: none;} /* fix: responsive img breaks google maps */
+img[data-sizes="auto"] { display: block; width: 100%; } /* needed for picturefill + lazysizes */
+
+
+
+/************************ 
+    COLORS
+************************/
+
+/* Colors
+#56bae9 - lightblue
+#323436 - text/black
+*/
+
+
+
+/************************ 
+    GENERAL STYLES
+************************/
+
+body {
+    min-width: 320px;
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    color: #323436;
+    position: relative;
+    line-height: 1;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+h1, h2, h3, h4 {font-weight: normal;}
+
+
+
+/************************ 
+    WORDPRESS STYLES
+************************/
+
+/* Wordpress editor */
+.alignright {float: right; margin: 0 0 6px 40px;}
+.alignleft {float: left; margin: 0 40px 6px 0;}
+.aligncenter {display: block; margin: 0 auto;}
+.wp-caption {max-width: 100%;}
+.wp-caption-text {text-align: center; margin-top: 4px;}
+
+
+
+/************************ 
+    GRID AND LAYOUT
+************************/
+
+/* wrap */
+.outerwrap {
+    max-width: 1140px; 
+    padding: 0 20px; 
+    margin: 0 auto; 
+    position: relative;
+}
+
+/* http://gridpak.com/ */ 
+.row {
+    margin-left: -40px; /* gutter */ 
+    font-size: 0; /* inline-block fix*/ 
+}
+
+.col {
+    border: 0px solid rgba(0,0,0,0);
+    display: inline-block;
+    background-clip: padding-box !important;
+    vertical-align: top;
+    border-left-width: 40px; 
+    padding: 0; 
+    font-size: 15px; /* inline-block fix*/     
+}  
+
+.col-1-1 {width: 100%; margin-left: 0; display: block;}
+
+.col-1-2 {width: 50%;}
+
+.col-1-3 {width: 33.3333333333%;}
+.col-2-3 {width: 66.6666666667%;}
+
+.col-1-4 {width: 25%;}
+.col-2-4 {width: 50%;}
+.col-3-4 {width: 75%;}
+
+.col-1-5 {width: 20%;}
+.col-2-5 {width: 40%;}
+.col-3-5 {width: 60%;}
+.col-4-5 {width: 80%;}
+
+/* 
+    Example:
+    <div class="outerwrap">
+        <h1>Heading</h1>
+        <div class="row">
+            <div class="col col-1-3">Content</div>
+            <div class="col col-1-3">Content</div>
+            <div class="col col-1-3">Content</div>
+        </div>
+    </div>
+*/
+
+
+
+/************************ 
+    THEME STYLES
+************************/
+
+/* Header */
+.navbar {
+    color: white;
+    background: #56bae9;
+    text-align: center;
+}
+
+    nav {
+        display: inline-block;
+    }
+
+    nav li {
+        display: inline-block; 
+        padding: 4px; 
+        margin: 0 4px;
+    }
+
+ 
+
+/************************ 
+    MEDIA QUERIES
+************************/
+
+@media only screen and (max-width : 960px) { 
+    /* css */
+}
+
+
+
+
+
+
+
+
+
+
+/************************ 
+    CODE SNIPPETS 
+    (delete if not used)
+************************/
+
+/* Full screen background */
+.bgfill {
+    background-image: url(img/background.jpg);
+    background-position: center top;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+/* Image replacement */
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+.visually-hidden {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hidden {display: none;}
+
+
+/* Transitions */
+.anim {
+-webkit-transition:all 200ms ease-in-out;
+   -moz-transition:all 200ms ease-in-out;
+     -o-transition:all 200ms ease-in-out;
+        transition:all 200ms ease-in-out;
+}
+
+.soft-anim {
+-webkit-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   -moz-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+     -o-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Show message for IE 8 and less*/
+.browsehappy {
+    position: fixed;
+    bottom: 0; left: 0; right: 0; 
+    padding: 15px;
+    margin: 0 auto;
+    color: black;
+    background: gold;
+    text-align: center;
+}
+.oldbrowser {padding-top: 30px;}
+
+
+/* Responsive videos */
+.videowrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16/9 aspect (9/16 = 56,25%) */
+    height: 0;
+    overflow: hidden;        
+}
+
+    .videowrap iframe,  
+    .videowrap object,  
+    .videowrap embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }  
