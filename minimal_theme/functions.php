@@ -8,6 +8,8 @@
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wp_generator'); 
 remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'print_emoji_detection_script', 7 );
+remove_action('wp_print_styles', 'print_emoji_styles' );
 
 
 // Enable post_thumbnails
@@ -17,6 +19,40 @@ if ( function_exists( 'add_theme_support' ) ) {
 // add_image_size( 'blog', 751, 350, true ); // true = crop
 // add_image_size( 'portrait-col', 223, 260, array( 'center', 'top' )); // crop from center top
 
+
+// Enable custom menu
+function register_my_menu() {
+  register_nav_menu('custom-menu',__( 'Custom Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+
+
+// Disable SEO yoast columns in backend
+// https://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-option-to-disableenable-columns-in-all-posts
+add_filter( 'wpseo_use_page_analysis', '__return_false' );
+
+
+// Hide annoying update notification
+add_action('admin_menu','wphidenag');
+function wphidenag() {
+    remove_action( 'admin_notices', 'update_nag', 3 );
+}
+
+
+// Add excerpt to pages
+add_action( 'init', 'my_add_excerpts_to_pages' );
+function my_add_excerpts_to_pages() {
+  add_post_type_support( 'page', 'excerpt' );
+}
+
+
+/*
+// Add excerpt to pages
+add_action( 'init', 'my_add_excerpts_to_pages' );
+function my_add_excerpts_to_pages() {
+  add_post_type_support( 'page', 'excerpt' );
+}
+*/
 
 
 /*  Thumbnail upscale / http://alxmedia.se/code/2013/10/thumbnail-upscale-correct-crop-in-wordpress/
@@ -43,25 +79,14 @@ add_filter( 'image_resize_dimensions', 'alx_thumbnail_upscale', 10, 6 );
 */
 
 
-// Enable custom menu
-function register_my_menu() {
-  register_nav_menu('custom-menu',__( 'Custom Menu' ));
+/*
+// Add category and tag to pages
+add_action( 'init', 'add_page_category_and_tag' );
+function add_page_category_and_tag(){
+    register_taxonomy_for_object_type('post_tag', 'page');
+    register_taxonomy_for_object_type('category', 'page'); 
 }
-add_action( 'init', 'register_my_menu' );
-
-
-// Disable SEO yoast columns in backend
-// https://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-option-to-disableenable-columns-in-all-posts
-add_filter( 'wpseo_use_page_analysis', '__return_false' );
-
-
-// Add excerpt to pages
-add_action( 'init', 'my_add_excerpts_to_pages' );
-function my_add_excerpts_to_pages() {
-  add_post_type_support( 'page', 'excerpt' );
-}
-
-
+*/
 
 /**
  * Remove WordPress's default padding on images with captions
