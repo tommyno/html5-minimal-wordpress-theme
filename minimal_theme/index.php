@@ -5,8 +5,8 @@
 	<? // show front page ?>
 
 	<? // http://codex.wordpress.org/Class_Reference/WP_Query ?>
-	<? $query = new WP_Query('pagename=forside'); ?>
-	<? while ($query->have_posts()) : $query->the_post(); ?>	
+	<? $frontpage = new WP_Query('pagename=forside'); ?>
+	<? while ($frontpage->have_posts()) : $frontpage->the_post(); ?>	
 
 			<? the_post_thumbnail('medium'); ?>
 
@@ -20,7 +20,6 @@
 
 	<? endwhile; ?>
 	<?php wp_reset_query(); ?>
-
 
 
 	<? // show list of posts ?>
@@ -41,8 +40,10 @@
 
 		</div>	
 
-	<? endwhile; ?>	
-	<?php wp_reset_query(); ?>
+	<? endwhile; ?>
+
+	<? // Reset to original frontpage query if need to query front page data again ?>
+	<? // $frontpage->reset_postdata(); ?>
 
 	*/ ?>
 
